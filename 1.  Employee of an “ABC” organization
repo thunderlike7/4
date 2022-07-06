@@ -1,0 +1,79 @@
+public class a1 
+{
+ public static void main(String[] args) 
+ {
+ Manager M = new Manager(117, "Rahul", "Sharma", 30400,15);
+ salesperson P= new salesperson(321, "Madhav","1", 19000, 108,95);
+ 
+ System.out.println(M);
+ System.out.println(P);
+ 
+ M.increment (15000);
+ P.increment (5000); 
+ System.out.println(M);
+ System.out.println(P);
+ }
+ }
+class Emp1
+{
+int eid;
+String fname, lname;
+float salary;
+Emp1 (int id, String fn, String ln, float sl) 
+ {
+ eid = id ;
+ fname = fn ;
+ lname = ln ;
+ salary = sl;
+ } 
+}
+class Manager extends Emp1
+{
+int stock;
+Manager(int id, String fn, String ln, float sl, int s)
+ {
+ super (id, fn, ln, sl);
+ stock = s; }
+ 
+ public String toString()
+ {
+ System.out.println("Employee_ID"+eid);
+ System.out.println("First Name "+fname);
+ System.out.println("Last Name "+lname);
+ System.out.println("Stock "+stock);
+ System.out.println("Salary "+salary);
+ 
+ return " "; 
+ }
+void increment(float bonus)
+ {
+ salary += bonus; 
+ } 
+}
+class salesperson extends Emp1
+{
+ int sales;
+ float crate;
+ 
+ salesperson (int id, String fn,String ln, float sl, int s, int cr)
+ {
+ super (id, fn, ln, sl);
+ 
+ sales=s;
+ crate=cr; 
+ }
+public String toString()
+ {
+ System.out.println("Employee_ID"+eid);
+ System.out.println("First Name "+fname);
+ System.out.println("Last Name "+lname); 
+ System.out.println("Commision rate "+crate);
+ System.out.println("Salary "+salary);
+ 
+ return ""; 
+ }
+void increment(float bonus)
+ {
+ salary += bonus; 
+ } 
+}
