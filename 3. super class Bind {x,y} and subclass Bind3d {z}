@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class a3 {
+public static void main(String[] args) {
+Scanner sc = new Scanner (System.in);
+int n;
+int x,y,z;
+System.out.println("Enter the number of objects to be created");
+n=sc.nextInt();
+Bind3d[] arr = new Bind3d[n];
+for (int i=0; i<n ; i++){
+System.out.println("Enter x, y, z values for object number "+(i + 1));
+x=sc.nextInt();
+y=sc.nextInt();
+z=sc.nextInt();
+arr[i]= new Bind3d(x,y,z);
+}
+Bind3d.printArr(arr);
+}
+}
+class Bind {
+int a,b;
+Bind(){
+}
+Bind(int a, int b){
+this.a=a;
+this.b=b; }
+public void print(){
+System.out.println("The value of x :"+this.a);
+System.out.println("The value of y :"+this.b);
+}
+}
+class Bind3d extends Bind{
+int z;
+public Bind3d (int x, int y, int z){
+super(x, y);
+this.z = z ; } 
+public void print(){
+super.print();
+System.out.println("the value of z:"+this.z);
+}
+final static void printArr (Bind3d obj []){
+System.out.println("The entered objects are :");
+for (Bind3d obj_1: obj){
+obj_1.print();
+System.out.println();
+}
+}
+}
