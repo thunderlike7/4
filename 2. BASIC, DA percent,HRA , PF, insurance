@@ -1,0 +1,89 @@
+import java.util.Scanner;
+public class Activity2{
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+int id;
+int cellnum;
+boolean salarypermanent;
+String designation;
+String firstName, middleName, lastName;
+String deptName,deptCode;
+double BASIC,DA,HRA,PF,Insurance;
+System.out.println("Enter the name of employee:");
+System.out.println("First Name:");
+firstName = sc.nextLine();
+System.out.println("Middle Name: ");
+middleName = sc.nextLine();
+System.out.println("Last Name:");
+lastName = sc.nextLine();
+System.out.println("Id:");
+id= sc.nextInt();
+System.out.println("Enter a cell number:");
+cellnum = sc.nextInt();
+System.out.println("Enter Designation:");
+designation = sc.nextLine();
+System.out.println("Enter Department Details: Department Name :");
+deptName = sc.nextLine();
+System.out.println("Department code:"); deptCode=sc.nextLine();
+System.out.println("Enter salary details: ");
+System.out.println("is salary permanent?:true/false");
+salarypermanent=sc.nextBoolean ();
+System.out.println("Enter BASIC, DA, HRA, PF, Insurance sequentially:");
+BASIC = sc.nextDouble();
+DA = sc.nextDouble();
+HRA=sc.nextDouble ();
+PF=sc.nextDouble();
+Insurance=sc.nextDouble();
+Employee one = new Employee(id, cellnum, salarypermanent, designation,
+firstName, middleName, lastName, deptName, deptCode, BASIC, DA, HRA, PF,
+Insurance);
+Employee two = one;
+Employee three = one;
+one.Display();
+two.Display();
+three.Display();
+} }
+class Department {
+String deptName, deptCode;
+Department (String deptName, String deptCode){
+this.deptCode=deptCode;
+this.deptName=deptName; } }
+class EmpName {
+String firstName;
+String middleName;
+String lastName;
+EmpName (String firstName, String middleName, String lastName){
+this.middleName=middleName;
+this.lastName=lastName;
+this.firstName=firstName; } }
+class Employee {
+Department d;
+EmpName e;
+Salary s;
+int Id, cellnum;
+boolean salarypermanent;
+String designation;
+Employee (int id, int cellnum, boolean salarypermanent, String designation,
+String firstName, String middleName, String lastName, String deptName, String
+deptCode, double BASIC,double DA,double HRA,double PF,double Insurance){
+d = new Department(deptName, deptCode);
+e = new EmpName(firstName, middleName, lastName);
+s = new Salary(BASIC, DA, HRA, PF, Insurance);
+this.Id=id;
+this.cellnum=cellnum;
+this.salarypermanent = salarypermanent;
+this.designation=designation; }
+void Display (){
+System.out.println("Name"+e.firstName+" "+e.middleName+" "+e.lastName);
+System.out.println("depName "+d.deptName+", deptCode "+d.deptCode );
+System.out.println("Id "+Id+", Cell Number "+ cellnum+", Designation ");
+System.out.println("Salary: Basic: "+ s.BASIC+" DA"+s.DA+" HRA"+ s.HRA+"PF" + "Insurance"+ s.Insurance);
+} }
+class Salary {
+double BASIC, DA, HRA, PF, Insurance;
+Salary (double BASIC, double DA, double HRA, double PF, double Insurance){
+this.BASIC=BASIC;
+this.DA = DA;
+this.HRA = HRA ;
+this.PF = PF ;
+this. Insurance=Insurance; } }
