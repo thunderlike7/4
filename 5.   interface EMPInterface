@@ -1,0 +1,48 @@
+public class a5 {
+public static void main(String[] args) { manager a[]= new manager [2];
+a[0] = new manager(11, "Anand", "Verma", 65000,5);
+a[1] = new manager(12, "Bhavya", "TD", 45000,135);
+a[0].displayEMP();
+a[0].giveBonus(1000);
+a[1].displayEMP();
+a[1].giveBonus(-500);
+} }
+abstract class Employee{
+int empID;
+String fName, lName;
+double salary; }
+interface EMPInterface {
+void displayEMP();
+void giveBonus(double amount);
+}
+class manager extends Employee implements EMPInterface {
+int noOfStock;
+manager (int e, String f, String l, double s, int ns){
+empID=e;
+fName =f;
+lName =l ;
+salary = s;
+noOfStock=ns; }
+public void displayEMP (){
+System.out.println("Employee ID = "+empID);
+System.out.println("Employee firstname = "+fName);
+System.out.println("Employee lastname = "+lName);
+System.out.println("Employee salary = "+salary);
+System.out.println("Employee no of stock options =" +noOfStock) ;
+} 
+public void giveBonus (double amount){
+try{
+if (amount<=0){
+bonus_exception obj = new bonus_exception("invalid bonus");
+throw(obj);
+}
+else{
+System.out.println("Bonus ="+amount);
+} }
+catch (bonus_exception err){
+System.out.println (err.getMessage());
+} } }
+class bonus_exception extends Exception{
+bonus_exception (String mes){
+super(mes);
+} }
